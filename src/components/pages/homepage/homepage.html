@@ -1,0 +1,32 @@
+<h1 class="text-center mt-5 p-2">Bienvenue sur Docx-Flix</h1>
+
+
+<ngb-carousel 
+    class="m-auto mt-5 w-50"
+	#carousel
+	[interval]="5000"
+	[pauseOnHover]="pauseOnHover"
+	[pauseOnFocus]="pauseOnFocus"
+	(slide)="onSlide($event)"
+>
+	@for (img of images; track img; let i = $index) {
+		<ng-template ngbSlide>
+			<div class="carousel-caption">
+				<h3>title</h3>
+			</div>
+			<a href="https://www.google.fr/?q=Number+{{ i + 1 }}" target="_blank" rel="nofollow noopener noreferrer">
+				<div class="picsum-img-wrapper">
+					<img [src]="img" alt="My image {{ i + 1 }} description" />
+				</div>
+			</a>
+		</ng-template>
+	}
+</ngb-carousel>
+
+<div class="text-center card w-50 m-auto p-5 mt-5 mb-5">
+    <p>Docx-Flix est une plateforme informative sur quelques séries , livres et films. Vous pouvez y trouver des résumés, des critiques et des analyses de ces œuvres.</p>
+
+    <p>Amusez-vous bien !</p>
+
+</div>
+

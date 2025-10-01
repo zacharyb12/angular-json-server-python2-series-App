@@ -1,0 +1,63 @@
+<ul ngbNav #nav="ngbNav" class="nav shadow bg-dark-subtle">
+
+    <img src="logo.png" alt="" width="250" height="250" routerLink="/" class="m-auto ms-5">
+
+    <h1 class="m-auto text-light fs-1 fw-bolder " routerLink="/">Docx-Flix</h1>
+
+    @if(isAdmin()){
+            <li ngbNavItem class="m-auto me-5">
+        <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-sm btn-warning" id="dropdown1" ngbDropdownToggle>Menu Admin</button>
+            <div ngbDropdownMenu aria-labelledby="dropdown1">
+
+                <button routerLink="admin/user-list" ngbDropdownItem>Liste des utilisateurs</button>
+
+            </div>
+        </div>
+
+    </li>
+    }
+
+    <li ngbNavItem class="m-auto me-5">
+        <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-sm btn-primary" id="dropdown1" ngbDropdownToggle>Menu</button>
+            <div ngbDropdownMenu aria-labelledby="dropdown1">
+
+                <button (click)="redirectToDetails()" ngbDropdownItem>Profile</button>
+                <button routerLink="/series/list" ngbDropdownItem>Series & Films</button>
+
+            </div>
+        </div>
+
+    </li>
+
+    <li ngbNavItem class="m-auto">
+        <div class="row">
+            <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                    @if(isLogged()){
+                        
+
+                    <button  class="btn btn-sm btn-danger"  (click)="logout()">
+                        Se déconnecter
+                    </button>
+
+                    } @else {
+
+                    <button  class="btn btn-sm btn-primary" id="dropdownForm1" ngbDropdownToggle>
+                        Login
+                    </button>
+
+                    <div ngbDropdownMenu aria-labelledby="dropdownForm1">
+                        <app-login></app-login>
+                        <button (click)="redirectToRegister()"  ngbDropdownItem>Inscription? Enregistrez-vous</button>
+                    </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+
+    </li>
+
+</ul>

@@ -1,0 +1,12 @@
+<h1 class="text-center mt-5">Liste des utilisateurs</h1>
+
+<ul class="text-center mt-5 ">
+    @for(u of users | async ; track u){
+        <li class="border rounded shadow-sm w-25 m-auto mt-3 d-flex justify-content-center">
+            <p class="p-2">{{u.id}} - {{u.name}}</p>
+
+            <button class="btn btn-sm btn-outline-danger m-2 ">Supprimer</button>
+            <button class="btn btn-sm btn-outline-primary m-2">Détails</button>
+        </li>
+    }
+</ul>

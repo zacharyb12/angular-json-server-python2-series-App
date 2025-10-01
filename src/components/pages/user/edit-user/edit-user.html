@@ -1,0 +1,19 @@
+<h1 class="text-center mt-5">Modifier vos informations</h1>
+
+<div>
+    <form [formGroup]="userForm" (ngSubmit)="updateUser()" class="w-50 m-auto mt-5">
+        <div class="mb-3">
+        <label for="name" class="form-label">Nom d'utilisateur</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        </div>
+        <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+        <div class="text-center ">
+            <button type="submit" class="btn btn-sm btn-primary">Modifier</button>
+            <button type="button" class="btn btn-sm btn-danger ms-3" (click)="deleteAccount()">Supprimer mon compte</button>
+            <button class="btn btn-sm btn-secondary ms-3" routerLink="/">Retourner à l'accueil</button>
+        </div>
+    </form>
+</div>

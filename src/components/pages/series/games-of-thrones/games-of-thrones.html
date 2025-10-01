@@ -1,0 +1,63 @@
+
+<div class="card  p-3">
+    <h1 class="text-center mt-5 ">Games of thrones : Books</h1>
+    <ul class="mt-5 row m-auto justify-content-center">
+        @for(book of gotBooks;track book) {
+            <li class="card w-25 m-auto p-2 gap-2 mx-2 mb-4  ">
+                <h2 class="text-center">{{book.name}}</h2>
+                <p class="text-center">Auteur : {{book.authors}}</p>
+                <p class="text-center">Nombre de pages : {{book.numberOfPages}}</p>
+                <p class="text-center">Date de publication : {{book.released | date : 'dd/MM/yyyy'}}</p>
+                <!-- TODO details Book -->
+                <button class="btn btn-outline-dark">Details</button>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="card  p-3 mt-5">
+    <h1>Games of thrones : Les Maisons</h1>
+    <ul class="mt-5 row m-auto justify-content-center">
+        @for(house of gotHouses;track house) {
+            <li class="card w-25 m-auto p-2 gap-2 mx-2 mb-4  ">
+                <h2 class="text-center">{{house.name}}</h2>
+                <p class="text-center">Region : {{house.region}}</p>
+                <p class="text-center">Mots : {{house.words}}</p>
+                <!-- TODO details House -->
+                 <button class="btn btn-outline-dark">Details</button>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="card  p-3 mt-5">
+    <h1 class="text-center mt-5 ">Games of thrones : Personnages</h1>
+    <ul class="mt-5 row m-auto justify-content-center">
+        @for(c of gotCharacters;track c) {
+            <li class="card w-25 m-auto p-2 gap-2 mx-2 mb-4  ">
+                <h2 class="text-center">{{c.name}}</h2>
+                <p class="text-center">Genre : {{c.gender}}</p>
+                <p class="text-center">Culture : {{c.culture}}</p>
+                <p class="text-center">Date de naissance : {{c.born}}</p>
+                <p class="text-center">Date de décès : {{c.died}}</p>
+                <!-- TODO details Character -->
+                 <button class="btn btn-outline-dark">Details</button>
+            </li>
+        }
+    </ul>
+    <div class="text-center d-flex justify-content-center align-items-center gap-3 mb-3 mt-5">
+        <button 
+            class="btn btn-outline-primary" 
+            (click)="previousPage()" 
+            [disabled]="currentPage === 1">
+            Précédent
+        </button>
+        <span class="fw-bold">Page {{currentPage}}</span>
+        <button 
+            class="btn btn-outline-primary" 
+            (click)="nextPage()">
+            Suivant
+        </button>
+    </div>
+</div>
+

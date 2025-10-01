@@ -1,0 +1,8 @@
+<h1 class="text-center mt-5">Profile</h1>
+
+<div class="card p-4 m-5 w-50 m-auto text-center">
+    <h4>{{ user?.name }}</h4>
+    <p>Email: {{ user?.email }}</p>
+    <p>Role: {{ user?.role }}</p>
+    <button class="btn btn-primary w-25 m-auto" (click)="navigateToEdit()">Edit Profile</button>
+</div>
