@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { LotrCharacter } from '../../models/lotr-character.model';
+import { LotrMoviesResponse } from '../../models/lotr-movies-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ private readonly httpClient = inject(HttpClient);
 
 
 getAllCharacters(page : number, limit : number){
-  return this.httpClient.get<any>(`${this.url}/character`, {
+  return this.httpClient.get<{docs: LotrCharacter[]}>(`${this.url}/character`, {
     headers : {
       Authorization : `Bearer ${this.apiKey}`
     },
@@ -26,7 +28,7 @@ getAllCharacters(page : number, limit : number){
 }
 
 getAllMovies(page : number, limit : number){
-  return this.httpClient.get<any>(`${this.url}/movie`, {
+  return this.httpClient.get<LotrMoviesResponse>(`${this.url}/movie`, {
     headers : {
       Authorization : `Bearer ${this.apiKey}`
     },

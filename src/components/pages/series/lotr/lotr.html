@@ -1,1 +1,30 @@
-<p>lotr works!</p>
+<h1>Lord of the Rings Characters</h1>
+
+<div class="card row">
+    <h1>Personnages</h1>
+
+    @for(c of characters;track c){
+    <div class="card w-25 p-2 m-2 text-center gap-2  mb-4">
+        <h2>{{c.name}}</h2>
+        <p>Race: {{c.race}}</p>
+        <p>Gender: {{c.gender}}</p>
+        <button class="btn btn-sm btn-outline-dark">details</button>
+
+    </div>
+    }
+
+</div>
+
+<div>
+    <h1>Films</h1>
+        @for(m of movies; track m){
+    <div class="card w-25 p-2 m-2 text-center gap-2  mb-4">
+        <h2>{{m.name}}</h2>
+        <p>Box Office: {{m.boxOfficeRevenueInMillions}}M</p>
+        <p>Budget: {{m.budgetInMillions}}M</p>
+        <p>Runtime: {{m.runtimeInMinutes}}min</p>
+        <button class="btn btn-sm btn-outline-dark">details</button>
+    </div>
+}
+
+</div>
