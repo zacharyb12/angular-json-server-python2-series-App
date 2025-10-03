@@ -1,0 +1,17 @@
+<h1>{{ house?.name }}</h1>
+
+@if(house) {
+    <p><strong>Region:</strong> {{ house.region }}</p>
+    <p><strong>Words:</strong> {{ house.words }}</p>
+    @for(seat of house.seats; track seat) {
+        <p><strong>Seat:</strong> {{ seat }}</p>
+    }
+    
+    <p><strong>Current Lord:</strong> {{ house.currentLord }}</p>
+    <p><strong>Heir:</strong> {{ house.heir }}</p>
+    <p><strong>Founded:</strong> {{ house.founded }}</p>
+    <p><strong>Died Out:</strong> {{ house.diedOut }}</p>
+    @for(ancestor of house.ancestralWeapons; track ancestor) {
+        <p><strong>Ancestral Weapon:</strong> {{ ancestor }}</p>
+    }
+}

@@ -8,7 +8,7 @@
         <h2>{{c.name}}</h2>
         <p>Race: {{c.race}}</p>
         <p>Gender: {{c.gender}}</p>
-        <button class="btn btn-sm btn-outline-dark">details</button>
+        <button (click)="navigateToCharacterDetails(c._id)" class="btn btn-sm btn-outline-dark">details</button>
 
     </div>
     }
@@ -23,7 +23,7 @@
         <p>Box Office: {{m.boxOfficeRevenueInMillions}}M</p>
         <p>Budget: {{m.budgetInMillions}}M</p>
         <p>Runtime: {{m.runtimeInMinutes}}min</p>
-        <button class="btn btn-sm btn-outline-dark">details</button>
+        <button (click)="navigateToMovieDetails(m._id)" class="btn btn-sm btn-outline-dark">details</button>
     </div>
 }
 

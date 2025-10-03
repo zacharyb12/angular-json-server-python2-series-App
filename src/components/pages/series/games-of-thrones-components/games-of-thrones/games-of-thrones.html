@@ -8,8 +8,8 @@
                 <p class="text-center">Auteur : {{book.authors}}</p>
                 <p class="text-center">Nombre de pages : {{book.numberOfPages}}</p>
                 <p class="text-center">Date de publication : {{book.released | date : 'dd/MM/yyyy'}}</p>
-                <!-- TODO details Book -->
-                <button class="btn btn-outline-dark">Details</button>
+
+                <button (click)="navigateToBookDetails(book.url)" class="btn btn-outline-dark">Details</button>
             </li>
         }
     </ul>
@@ -23,8 +23,7 @@
                 <h2 class="text-center">{{house.name}}</h2>
                 <p class="text-center">Region : {{house.region}}</p>
                 <p class="text-center">Mots : {{house.words}}</p>
-                <!-- TODO details House -->
-                 <button class="btn btn-outline-dark">Details</button>
+                 <button (click)="navigateToHouseDetails(house.overlord)" class="btn btn-outline-dark">Details</button>
             </li>
         }
     </ul>
@@ -40,8 +39,7 @@
                 <p class="text-center">Culture : {{c.culture}}</p>
                 <p class="text-center">Date de naissance : {{c.born}}</p>
                 <p class="text-center">Date de décès : {{c.died}}</p>
-                <!-- TODO details Character -->
-                 <button class="btn btn-outline-dark">Details</button>
+                 <button (click)="navigateToCharacterDetails(c.url)" class="btn btn-outline-dark">Details</button>
             </li>
         }
     </ul>

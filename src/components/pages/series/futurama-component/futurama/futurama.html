@@ -1,0 +1,39 @@
+<h1>Futurama</h1>
+
+<div>
+    <h2>Personnages</h2>
+
+    @for (item of characters; track $index) {
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{item.images.main}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name.first}} {{item.name.middle}} {{item.name.last}}</h5>
+                    <p class="card-text">{{item.species}}</p>
+                </div>
+            </div>
+            <button (click)="navigateToCharacterDetails(item.id)">Détails</button>
+        </div>
+    </div>
+    }
+</div>
+
+<div>
+    <h2>Episodes</h2>
+    @for (ep of episodes; track $index) {
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ep.title}}</h5>
+                    <p class="card-text">{{ep.desc}}</p>
+                </div>
+            </div>
+            <button (click)="navigateToEpisodeDetails(ep.id)">Détails</button>
+        </div>
+    </div>
+    }   
+</div>

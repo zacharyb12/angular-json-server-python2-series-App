@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { GotService } from '../../../../core/services/games-Of-Thrones/got-service';
-import { GotBooksResponse } from '../../../../core/models/got-books-response.model';
 import { DatePipe } from '@angular/common';
-import { GotCharactersResponse } from '../../../../core/models/got-characters-response.model';
-import { GotHousesResponse } from '../../../../core/models/got-houses-response.model';
+import { Component, inject } from '@angular/core';
+import { GotBooksResponse } from '../../../../../core/models/got/got-books-response.model';
+import { GotCharactersResponse } from '../../../../../core/models/got/got-characters-response.model';
+import { GotHousesResponse } from '../../../../../core/models/got/got-houses-response.model';
+import { GotService } from '../../../../../core/services/games-Of-Thrones/got-service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-games-of-thrones',
@@ -25,6 +27,7 @@ currentPage : number = 1;
 pageSize : number = 20;
 
 private readonly gotService = inject(GotService);
+private readonly router = inject(Router);
 
 
 constructor() {
@@ -37,11 +40,8 @@ constructor() {
   // Chargement initial avec pagination
   this.getCharacter(this.currentPage, this.pageSize);
 
-  this.gotService.getAllHouses().subscribe({
-    next : (response) => {
-      this.gotHouses = response;
-    }
-  })
+  this.getHouses();
+
 }
 
 
@@ -67,6 +67,27 @@ getCharacter(page : number, pageSize : number){
   })
 }
 
+getHouses(){
+  this.gotService.getAllHouses().subscribe({
+    next : (response) => {
+      this.gotHouses = response;
+    }
+  })
+}
 
+navigateToBookDetails(url: string) {
+  const id = url.split('books/')[1];
+   this.router.navigate(['/series/got-book-details', id]);
+}
+
+navigateToCharacterDetails(url: string) {
+  const id = url.split('characters/')[1];
+  this.router.navigate(['/series/got-character-details', id]);
+}
+
+navigateToHouseDetails(url: string) {
+  const id = url.split('houses/')[1];  
+  this.router.navigate(['/series/got-house-details', id]);
+}
 }
 

@@ -1,0 +1,11 @@
+<h1>{{characterDetails?.name}}</h1>
+
+<p>Genre : {{characterDetails?.gender}}</p>
+<p>Culture : {{characterDetails?.culture}}</p>
+<p>Date de naissance : {{characterDetails?.born}}</p>
+<p>Date de décès : {{characterDetails?.died}}</p>
+<p>Alias : 
+    @for(alias of characterDetails?.aliases; track alias) {
+        {{ alias }}
+    }
+</p>

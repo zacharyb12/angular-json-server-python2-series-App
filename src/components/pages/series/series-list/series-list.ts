@@ -21,4 +21,8 @@ export class SeriesList {
     this.router.navigate(['/series/Lotr']);
   }
 
+    redirectToFuturama(){
+    this.router.navigate(['/series/futurama']);
+  }
+
 }

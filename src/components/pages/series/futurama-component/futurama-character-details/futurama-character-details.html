@@ -1,0 +1,19 @@
+<h1>{{ character?.name }}</h1>
+
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img [src]="character?.images?.main" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{character?.name?.first}} {{character?.name?.middle}} {{character?.name?.last}}</h5>
+                <p class="card-text">Espèce : {{character?.species}}</p>
+                <p class="card-text">Âge : {{character?.age}}</p>
+                <p class="card-text">Planète d'origine : {{character?.homePlanet}}</p>
+                <p class="card-text">Profession : {{character?.occupation}}</p>
+                <p class="card-text">Sexe : {{character?.gender}}</p>
+            </div>
+        </div>
+    </div>
+</div>

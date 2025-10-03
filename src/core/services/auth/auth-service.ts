@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { User } from '../../models/user.model';
-import { LoginForm } from '../../models/loginform.model';
-import { UserAdd } from '../../models/user-add.model';
+import { User } from '../../models/user/user.model';
+import { LoginForm } from '../../models/user/loginform.model';
+import { UserAdd } from '../../models/user/user-add.model';
 import { UserService } from '../users/user-service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';

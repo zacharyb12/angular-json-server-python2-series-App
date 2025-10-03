@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { LotrCharacter } from '../../models/lotr-character.model';
-import { LotrMoviesResponse } from '../../models/lotr-movies-response.model';
+import { LotrCharacter } from '../../models/lotr/lotr-character.model';
+import { LotrMoviesResponse } from '../../models/lotr/lotr-movies-response.model';
+import { Observable } from 'rxjs';
+import { LotrCharacterResponse } from '../../models/lotr/lotr-character-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +28,16 @@ getAllCharacters(page : number, limit : number){
     }
   });
 }
+getCharacterById(id : string) : Observable<LotrCharacterResponse>{
+  return this.httpClient.get<LotrCharacterResponse>(`${this.url}/character/${id}`, {
+    headers : {
+      Authorization : `Bearer ${this.apiKey}`
+    }
+  });
+}
 
-getAllMovies(page : number, limit : number){
+
+getAllMovies(page : number, limit : number) : Observable<LotrMoviesResponse>{
   return this.httpClient.get<LotrMoviesResponse>(`${this.url}/movie`, {
     headers : {
       Authorization : `Bearer ${this.apiKey}`
@@ -35,6 +45,13 @@ getAllMovies(page : number, limit : number){
     params : {
       page : page.toString(),
       limit : limit.toString()
+    }
+  });
+}
+getMovieById(id : string) : Observable<LotrMoviesResponse>{
+  return this.httpClient.get<LotrMoviesResponse>(`${this.url}/movie/${id}`, {
+    headers : {
+      Authorization : `Bearer ${this.apiKey}`
     }
   });
 }

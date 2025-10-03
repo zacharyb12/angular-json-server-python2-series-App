@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { User } from '../../../../core/models/user.model';
+import { User } from '../../../../core/models/user/user.model';
 import { UserService } from '../../../../core/services/users/user-service';
 import { ActivatedRoute, Router } from '@angular/router';
 

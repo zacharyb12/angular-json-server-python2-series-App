@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../../../../core/models/user.model';
+import { User } from '../../../../core/models/user/user.model';
 import { UserService } from '../../../../core/services/users/user-service';
 import { AsyncPipe } from '@angular/common';
 
